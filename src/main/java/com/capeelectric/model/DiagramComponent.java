@@ -4,8 +4,6 @@
 package com.capeelectric.model;
 
 import java.time.LocalDateTime;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,12 +11,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
+
 /**
  * @author CAPE-SOFTWARE
  *
  */
 @Entity
 @Table(name = "DIAGRAM_COMPONENT")
+
+@NamedQueries(value = {
+		@NamedQuery(name = "diagramRepository.findByUserNameAndFileName", query = "select s from DiagramComponent s where s.userName=:userName and s.fileName=:fileName"),
+		@NamedQuery(name = "diagramRepository.findByUserNameAndDiagramId", query = "select s from DiagramComponent s where s.userName=:userName and s.diagramId=:diagramId"),
+		@NamedQuery(name = "diagramRepository.findByUserName", query = "select s from DiagramComponent s where s.userName=:userName")
+
+})
+
 public class DiagramComponent {
 	
 	@Id
@@ -33,10 +42,7 @@ public class DiagramComponent {
 	private String fileName;
 
 	@Column(name = "FILE")
-	private Byte file;
-	
-	@Column(name = "EMAIL_ID")
-	private String email;
+	private String file;
 
 	@Column(name = "CREATED_BY")
 	private String createdBy;
@@ -74,20 +80,12 @@ public class DiagramComponent {
 		this.fileName = fileName;
 	}
 
-	public Byte getFile() {
+	public String getFile() {
 		return file;
 	}
 
-	public void setFile(Byte file) {
+	public void setFile(String file) {
 		this.file = file;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public String getCreatedBy() {
@@ -97,8 +95,6 @@ public class DiagramComponent {
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
-
-	
 
 	public LocalDateTime getCreatedDate() {
 		return createdDate;

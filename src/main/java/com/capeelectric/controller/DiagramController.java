@@ -1,5 +1,7 @@
 package com.capeelectric.controller;
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -10,9 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.capeelectric.exception.DiagramComponentException;
 import com.capeelectric.model.DiagramComponent;
 import com.capeelectric.service.DiagramService;
@@ -27,18 +33,34 @@ private static final Logger logger = LoggerFactory.getLogger(DiagramController.c
 	private DiagramService diagramService;
 	
 	@PostMapping("/saveDiagram")
-	public ResponseEntity<DiagramComponent> addDiagramComponent(@RequestBody DiagramComponent diagramComponent)
+	public ResponseEntity<String> addDiagramComponent(@RequestBody DiagramComponent diagramComponent)
 			throws DiagramComponentException {
 		logger.info("called addBasicLpsDetails function UserName : {}", diagramComponent.getUserName());
-		return new ResponseEntity<DiagramComponent>(diagramService.addDiagram(diagramComponent), HttpStatus.CREATED);
+		diagramService.addDiagram(diagramComponent);
+		return new ResponseEntity<String>("Diagram saved successfully", HttpStatus.CREATED);
 	}
 
-//	@GetMapping("/retrieveBasicLps/{userName}/{basicLpsId}")
-//	public ResponseEntity<List<BasicLps>> retrieveBasicLpsDetails(@PathVariable String userName,
-//			@PathVariable Integer basicLpsId)
-//			throws BasicLpsException {
-//		logger.info("called retrieveBasicLpsDetails function UserName: {}, basicLpsId : {}", userName, basicLpsId);
-//		return new ResponseEntity<List<BasicLps>>(basicLpsService.retrieveBasicLpsDetails(userName, basicLpsId),
-//				HttpStatus.OK);
-//	}
+	@GetMapping("/retrieveDiagram/{userName}/{fileName}")
+	public ResponseEntity<DiagramComponent> retrieveDiagramComponent(@PathVariable String userName, @PathVariable String fileName) 
+			throws DiagramComponentException {
+		logger.info("called retrieveDiagramComponent function UserName: {}, fileName : {}", userName, fileName);
+		return new ResponseEntity<DiagramComponent>(diagramService.retrieveDiagramComponent(userName, fileName),
+				HttpStatus.OK);
+	}
+	
+	@GetMapping("/retrieveDiagramList/{userName}")
+	public ResponseEntity<List<DiagramComponent>> retrieveDiagramList(@PathVariable String userName) 
+			throws DiagramComponentException {
+		logger.info("called retrieveDiagramList function UserName: {}", userName);
+		return new ResponseEntity<List<DiagramComponent>>(diagramService.retrieveAllDiagram(userName),
+				HttpStatus.OK);
+	}
+	
+	@PutMapping("/updateDiagram")
+	public ResponseEntity<String> updateDiagramComponent(@RequestBody DiagramComponent diagramComponent)
+			throws DiagramComponentException {
+		logger.info("called updateDiagramComponent function UserName : {}", diagramComponent.getUserName());
+		diagramService.updateDiagram(diagramComponent);
+		return new ResponseEntity<String>("Diagram updated successfully", HttpStatus.CREATED);
+	}
 }
