@@ -81,6 +81,26 @@ public class DiagramServiceImpl implements DiagramService {
 	}
 	
 	@Override
+	public String retrieveFileName(String userName, String fileName) throws DiagramComponentException {
+		logger.info("Called retrieveFileName function");
+		if (userName != null && !userName.isEmpty() && fileName != null && !fileName.isEmpty()) {
+			Optional<DiagramComponent> diagramComponentRepo = diagramRepository.findByUserNameAndFileName(userName,fileName);
+			if(!diagramComponentRepo.isPresent()) {			
+				logger.info("Ended retrieveDiagramComponent function");
+				return "This File Name can be used";
+			}
+			else {
+				logger.error("File Name is already exist");
+				throw new DiagramComponentException("File Name is already exist");
+			}						
+		}
+		else {
+			logger.error("Invalid Inputs");
+			throw new DiagramComponentException("Invalid Inputs");
+		}
+	}
+	
+	@Override
 	public List<DiagramComponent> retrieveAllDiagram(String userName) throws DiagramComponentException {
 		logger.info("Called retrieveAllDiagram function");
 		if (userName != null && !userName.isEmpty()) {

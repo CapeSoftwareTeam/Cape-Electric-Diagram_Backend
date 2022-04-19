@@ -10,6 +10,8 @@ public interface DiagramService {
 	
 	public DiagramComponent retrieveDiagramComponent(String userName, String fileName) throws DiagramComponentException;
 	
+	public String retrieveFileName(String userName, String fileName) throws DiagramComponentException;
+
 	public List<DiagramComponent> retrieveAllDiagram(String userName) throws DiagramComponentException;
 
 	public DiagramComponent updateDiagram(DiagramComponent diagramComponent) throws DiagramComponentException;

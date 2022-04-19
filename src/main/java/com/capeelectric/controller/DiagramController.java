@@ -1,7 +1,6 @@
 package com.capeelectric.controller;
 
-import java.io.IOException;
-import java.sql.SQLException;
+
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -15,9 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.capeelectric.exception.DiagramComponentException;
 import com.capeelectric.model.DiagramComponent;
@@ -45,6 +42,14 @@ private static final Logger logger = LoggerFactory.getLogger(DiagramController.c
 			throws DiagramComponentException {
 		logger.info("called retrieveDiagramComponent function UserName: {}, fileName : {}", userName, fileName);
 		return new ResponseEntity<DiagramComponent>(diagramService.retrieveDiagramComponent(userName, fileName),
+				HttpStatus.OK);
+	}
+	
+	@GetMapping("/retrievefileName/{userName}/{fileName}")
+	public ResponseEntity<String> retrievefileName(@PathVariable String userName, @PathVariable String fileName) 
+			throws DiagramComponentException {
+		logger.info("called retrieveDiagramComponent function UserName: {}, fileName : {}", userName, fileName);
+		return new ResponseEntity<String>(diagramService.retrieveFileName(userName, fileName),
 				HttpStatus.OK);
 	}
 	
