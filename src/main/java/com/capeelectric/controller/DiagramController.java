@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.capeelectric.exception.DiagramComponentException;
 import com.capeelectric.model.DiagramComponent;
+import com.capeelectric.model.DiagramSymbol;
 import com.capeelectric.service.DiagramService;
 
 @RestController
@@ -68,4 +69,14 @@ private static final Logger logger = LoggerFactory.getLogger(DiagramController.c
 		diagramService.updateDiagram(diagramComponent);
 		return new ResponseEntity<String>("Diagram updated successfully", HttpStatus.CREATED);
 	}
+	
+	@GetMapping("/symbolList")
+	public ResponseEntity<List<DiagramSymbol>>symbolList() 
+			throws DiagramComponentException {
+		logger.info("called symbolList function");
+		return new ResponseEntity<List<DiagramSymbol>>(diagramService.retrieveAllSymbol(),
+				HttpStatus.OK);
+	}
+	
+	
 }

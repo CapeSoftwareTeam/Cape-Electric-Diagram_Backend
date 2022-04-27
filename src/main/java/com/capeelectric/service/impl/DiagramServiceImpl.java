@@ -14,7 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.capeelectric.exception.DiagramComponentException;
 import com.capeelectric.model.DiagramComponent;
+import com.capeelectric.model.DiagramSymbol;
 import com.capeelectric.repository.DiagramRepository;
+import com.capeelectric.repository.DiagramSymbolRepository;
 import com.capeelectric.service.DiagramService;
 import com.capeelectric.util.UserFullName;
 
@@ -31,6 +33,9 @@ public class DiagramServiceImpl implements DiagramService {
 	
 	@Autowired
 	private UserFullName userFullName;
+	
+	@Autowired
+	private DiagramSymbolRepository diagramSymbolRepository;
 	
 	@Transactional
 	@Override
@@ -144,6 +149,11 @@ public class DiagramServiceImpl implements DiagramService {
 			logger.error("Invalid Inputs");
 			throw new DiagramComponentException("Invalid Inputs");
 		}		
+	}
+
+	@Override
+	public List<DiagramSymbol> retrieveAllSymbol() {
+		return (List<DiagramSymbol>) diagramSymbolRepository.findAll();
 	}
 	
 }

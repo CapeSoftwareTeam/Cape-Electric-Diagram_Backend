@@ -3,6 +3,7 @@ import java.util.List;
 
 import com.capeelectric.exception.DiagramComponentException;
 import com.capeelectric.model.DiagramComponent;
+import com.capeelectric.model.DiagramSymbol;
 
 public interface DiagramService {
 
@@ -16,5 +17,5 @@ public interface DiagramService {
 
 	public DiagramComponent updateDiagram(DiagramComponent diagramComponent) throws DiagramComponentException;
 
-
+	public List<DiagramSymbol> retrieveAllSymbol();
 }
