@@ -48,14 +48,26 @@ public class IncomerDetailsLV {
 	@Column(name = "CURRENT_DEVICE_TYPE")
 	private String currentDeviceType;
 	
+	@Column(name = "RESIDUAL_OPERATING_CURRENT")
+	private Integer residualOperatingCurrent;
+	
+	@Column(name = "MANUFACTURERS_RELAY_NAME")
+	private String manufacturersRelayName;
+	
+	@Column(name = "HIGH_STAGE_EARTH_FAULT")
+	private Integer highStageEarthFault;
+	
+	@Column(name = "TYPE")
+	private String type;
+	
 	@Column(name = "HIGH_STAGE_OVERCURRENT")
 	private Integer highStageOverCurrent;
 	
 	@Column(name = "OVER_CURRENT_SET_TIME")
 	private Integer overCurrentSetTime;
 	
-	@Column(name = "HIGH_STAGE_EARTH_FAULT")
-	private Integer highStageEarthFault;
+//	@Column(name = "HIGH_STAGE_EARTH_FAULT")
+//	private Integer highStageEarthFault;
 	
 	@Column(name = "EARTH_FAULT_SET_TIME")
 	private Integer earthFaultSetTime;
@@ -63,20 +75,15 @@ public class IncomerDetailsLV {
 	@Column(name = "OVER_VOLTAGE_PROTECTION")
 	private String overVoltageProtection;
 	
-	@Column(name = "OVER_VOLTAGE_SET_VOLTAGE")
-	private Integer overVoltageSetVoltage;
+	@Column(name = "OVER_VOLTAGE_MAKE")
+	private String overVoltageMake;
 	
-	@Column(name = "OVER_VOLTAGE_SET_TIME")
-	private Integer overVoltageSetTime;
+	@Column(name = "OVER_VOLTAGE_MODEL")
+	private String overVoltageModel;
 	
-	@Column(name = "OUT_GOING_CABLE_PHASE")
-	private Integer outGoingCablePhase;
+	@Column(name = "OVER_VOLTAGE_ClASS_TYPE")
+	private String overVoltageClassType;
 	
-	@Column(name = "OUT_GOING_CABLE_NEUTRAL")
-	private Integer outGoingCableNeutral;
-	
-	@Column(name = "OUT_GOING_CABLE_PROTECTIVE")
-	private Integer outGoingCableProtective;
 	
 	@JsonBackReference
 	@ManyToOne(cascade = CascadeType.ALL)
