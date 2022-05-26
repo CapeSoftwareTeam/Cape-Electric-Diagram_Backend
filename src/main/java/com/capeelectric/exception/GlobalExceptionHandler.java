@@ -16,4 +16,10 @@ public class GlobalExceptionHandler {
 		ErrorMessage exceptionMessage = new ErrorMessage(e.getMessage(), e.getLocalizedMessage(), "406");
 		return new ResponseEntity<ErrorMessage>(exceptionMessage, new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE);
 	}
+	
+	@ExceptionHandler({ MCBException.class })
+	public ResponseEntity<ErrorMessage> handleMCBException(MCBException e) {
+		ErrorMessage exceptionMessage = new ErrorMessage(e.getMessage(), e.getLocalizedMessage(), "406");
+		return new ResponseEntity<ErrorMessage>(exceptionMessage, new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE);
+	}
 }
