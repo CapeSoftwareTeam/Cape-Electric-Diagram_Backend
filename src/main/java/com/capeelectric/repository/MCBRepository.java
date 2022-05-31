@@ -17,5 +17,7 @@ import com.capeelectric.model.MCB;
 public interface MCBRepository extends CrudRepository<MCB, Integer>{
 	
 	Optional<MCB> findByFileNameAndNodeId(String fileName, String nodeId);
+	
+	Optional<MCB> findByMcbID(Integer mcbID);
 
 }

@@ -4,12 +4,17 @@
 package com.capeelectric.controller;
 
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,20 +43,20 @@ private static final Logger logger = LoggerFactory.getLogger(MCBController.class
 		return new ResponseEntity<String>("MCB details saved successfully", HttpStatus.CREATED);
 	}
 
-//	@GetMapping("/retrieveDiagram/{userName}/{fileName}")
-//	public ResponseEntity<DiagramComponent> retrieveDiagramComponent(@PathVariable String userName, @PathVariable String fileName) 
-//			throws DiagramComponentException {
-//		logger.info("called retrieveDiagramComponent function UserName: {}, fileName : {}", userName, fileName);
-//		return new ResponseEntity<DiagramComponent>(diagramService.retrieveDiagramComponent(userName, fileName),
-//				HttpStatus.OK);
-//	}
-//	
-//	@PutMapping("/updateDiagram")
-//	public ResponseEntity<String> updateDiagramComponent(@RequestBody DiagramComponent diagramComponent)
-//			throws DiagramComponentException {
-//		logger.info("called updateDiagramComponent function UserName : {}", diagramComponent.getUserName());
-//		diagramService.updateDiagram(diagramComponent);
-//		return new ResponseEntity<String>("Diagram updated successfully", HttpStatus.CREATED);
-//	}
+	@GetMapping("/retrieveMCB/{fileName}/{nodeId}")
+	public ResponseEntity<List<MCB>> retrieveMCB(@PathVariable String fileName, @PathVariable String nodeId) 
+			throws MCBException {
+		logger.info("called retrieveMCB function FileName: {}, Node Id : {}", fileName, nodeId);
+		return new ResponseEntity<List<MCB>>(mcbService.retrieveMCBData(fileName, nodeId),
+				HttpStatus.OK);
+	}
+	
+	@PutMapping("/updateMCB")
+	public ResponseEntity<String> updateMCB(@RequestBody MCB mcb)
+			throws MCBException {
+		logger.info("called updateMCB function File Name : {}", mcb.getFileName());
+		mcbService.updateMCB(mcb);
+		return new ResponseEntity<String>("MCB details updated successfully", HttpStatus.CREATED);
+	}
 
 }

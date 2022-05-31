@@ -57,6 +57,21 @@ public class GeneralTestingMCB {
 	@Column(name = "NE")
 	private String nE;
 	
+	@Column(name = "IR_CURRENT")
+	private String iRCurrent;
+	
+	@Column(name = "IY_CURRENT")
+	private String iYCurrent;
+	
+	@Column(name = "IB_CURRENT")
+	private String iBCurrent;
+	
+	@Column(name = "IN_CURRENT")
+	private String iNCurrent;
+	
+	@Column(name = "IPE_CURRENT")
+	private String iPECurrent;
+	
 	@Column(name = "POWER_FACTOR")
 	private String powerFactor;
 		
@@ -179,7 +194,45 @@ public class GeneralTestingMCB {
 	public void setMcb(MCB mcb) {
 		this.mcb = mcb;
 	}
-	
-	
 
+	public String getiRCurrent() {
+		return iRCurrent;
+	}
+
+	public void setiRCurrent(String iRCurrent) {
+		this.iRCurrent = iRCurrent;
+	}
+
+	public String getiYCurrent() {
+		return iYCurrent;
+	}
+
+	public void setiYCurrent(String iYCurrent) {
+		this.iYCurrent = iYCurrent;
+	}
+
+	public String getiBCurrent() {
+		return iBCurrent;
+	}
+
+	public void setiBCurrent(String iBCurrent) {
+		this.iBCurrent = iBCurrent;
+	}
+
+	public String getiNCurrent() {
+		return iNCurrent;
+	}
+
+	public void setiNCurrent(String iNCurrent) {
+		this.iNCurrent = iNCurrent;
+	}
+
+	public String getiPECurrent() {
+		return iPECurrent;
+	}
+
+	public void setiPECurrent(String iPECurrent) {
+		this.iPECurrent = iPECurrent;
+	}
+	
 }

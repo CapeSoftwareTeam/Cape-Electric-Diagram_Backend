@@ -4,6 +4,7 @@
 package com.capeelectric.service.impl;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,5 +60,52 @@ public class MCBServiceImpl implements MCBService {
 			throw new MCBException("Invalid Inputs");
 		}	
 	}
-		
+	
+	@Override
+	public List<MCB> retrieveMCBData(String fileName, String nodeId) throws MCBException {
+		logger.info("Called retrieveMCBData function");
+		MCB mcb =new MCB();
+		if (fileName != null && !fileName.isEmpty() && nodeId != null && !nodeId.isEmpty()) {
+			Optional<MCB> mcbRepo = mcbRepository.findByFileNameAndNodeId(fileName,nodeId);
+			List<MCB> mcbList =new ArrayList<MCB>();
+			if(mcbRepo.isPresent()) {			
+				mcb = mcbRepo.get();
+				mcbList.add(mcb);
+				logger.info("MCB data available for fileName :"+fileName+" nodeId :"+nodeId);
+				logger.info("Ended retrieveMCBData function");
+				return mcbList;
+			}
+			else {
+				return mcbList;
+			}						
+		}
+		else {
+			logger.error("Invalid Inputs");
+			throw new MCBException("Invalid Inputs");
+		}
+	}
+	
+	@Transactional
+	@Override
+	public MCB updateMCB(MCB mcb) throws MCBException {
+		logger.info("Called updateMCB function");
+		if (mcb != null && mcb.getFileName() != null && mcb.getMcbID() != null) {
+			Optional<MCB> mcbRepo = mcbRepository.findByMcbID(mcb.getMcbID());
+			
+			if(mcbRepo.isPresent()) {
+				mcb.setUpdatedDate(LocalDateTime.now());
+				mcb.setUpdatedBy(userFullName.findByUserName(mcb.getUserName()));
+				logger.info("Ended updateMCB function");
+				return mcbRepository.save(mcb);
+			}
+			else {
+				logger.error("Given MCB Id is invalid");
+				throw new MCBException("Given MCB Id is invalid");
+			}						
+		}
+		else {
+			logger.error("Invalid Inputs");
+			throw new MCBException("Invalid Inputs");
+		}	
+	}
 }
