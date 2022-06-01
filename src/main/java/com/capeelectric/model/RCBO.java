@@ -58,6 +58,9 @@ public class RCBO {
 	@Column(name = "CURRENT_CURVE")
 	private String currentCurve;
 	
+	@Column(name = "RESIDUAL_CURRENT_TYPE")
+	private String residualCurrentType;
+
 	@Column(name = "RESIDUAL_CURRENT")
 	private Integer residualCurrent;
 	
@@ -249,6 +252,13 @@ public class RCBO {
 	public void setSafetyTestingRCBO(List<SafetyTestingRCBO> safetyTestingRCBO) {
 		this.safetyTestingRCBO = safetyTestingRCBO;
 	}
-	
-	
+
+	public String getResidualCurrentType() {
+		return residualCurrentType;
+	}
+
+	public void setResidualCurrentType(String residualCurrentType) {
+		this.residualCurrentType = residualCurrentType;
+	}
+
 }
