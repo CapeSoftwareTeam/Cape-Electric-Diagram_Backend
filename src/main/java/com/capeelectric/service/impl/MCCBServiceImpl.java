@@ -51,8 +51,8 @@ public class MCCBServiceImpl implements MCCBService {
 				return mccbRepository.save(mccb);
 			}
 			else {
-				logger.error("Node Id "+mccb.getNodeId()+"is already exist for File Name"+mccb.getFileName());
-				throw new MCCBException("Node Id "+mccb.getNodeId()+"is already exist for File Name"+mccb.getFileName());
+				logger.error("Node Id "+mccb.getNodeId()+"is already exist for File Name "+mccb.getFileName());
+				throw new MCCBException("Node Id "+mccb.getNodeId()+"is already exist for File Name "+mccb.getFileName());
 			}						
 		}
 		else {
