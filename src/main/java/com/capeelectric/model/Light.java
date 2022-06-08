@@ -3,6 +3,7 @@
  */
 package com.capeelectric.model;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -30,6 +31,15 @@ public class Light {
 	@Column(name = "LIGHT_ID")
 	private Integer lightId;
 	
+	@Column(name = "NODE_ID")
+	private String nodeId;
+	
+	@Column(name = "FILE_NAME")
+	private String fileName;
+	
+	@Column(name = "USER_NAME")
+	private String userName;
+	
 	@Column(name = "REFERENCE_NAME")
 	private String referenceName;
 		
@@ -49,22 +59,34 @@ public class Light {
 	private Integer type;
 	
 	@Column(name = "INCOMING_SIZE_PHASE")
-	private String incomingSizePhase;
+	private Integer incomingSizePhase;
 	
 	@Column(name = "INCOMING_SIZE_NEUTRAL")
-	private String incomingSizeNeutral;
+	private Integer incomingSizeNeutral;
 	
 	@Column(name = "INCOMING_SIZE_PROTECTIVE")
 	private Integer incomingSizeProtective;
 	
 	@Column(name = "INCOMING_LENGTH_PHASE")
-	private String incomingLengthPhase;
+	private Integer incomingLengthPhase;
 	
 	@Column(name = "INCOMING_LENGTH_NEUTRAL")
 	private Integer incomingLengthNeutral;
 	
 	@Column(name = "INCOMING_LENGTH_PROTECTIVE")
 	private String incomingLengthProtective;
+	
+	@Column(name = "CREATED_DATE")
+	private LocalDateTime createdDate;
+
+	@Column(name = "CREATED_BY")
+	private String createdBy;
+
+	@Column(name = "UPDATED_BY")
+	private String updatedBy;
+	
+	@Column(name = "UPDATED_DATE")
+	private LocalDateTime updatedDate;
 	
 	@JsonManagedReference
 	@OneToMany(mappedBy = "light", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -130,36 +152,12 @@ public class Light {
 		this.type = type;
 	}
 
-	public String getIncomingSizePhase() {
-		return incomingSizePhase;
-	}
-
-	public void setIncomingSizePhase(String incomingSizePhase) {
-		this.incomingSizePhase = incomingSizePhase;
-	}
-
-	public String getIncomingSizeNeutral() {
-		return incomingSizeNeutral;
-	}
-
-	public void setIncomingSizeNeutral(String incomingSizeNeutral) {
-		this.incomingSizeNeutral = incomingSizeNeutral;
-	}
-
 	public Integer getIncomingSizeProtective() {
 		return incomingSizeProtective;
 	}
 
 	public void setIncomingSizeProtective(Integer incomingSizeProtective) {
 		this.incomingSizeProtective = incomingSizeProtective;
-	}
-
-	public String getIncomingLengthPhase() {
-		return incomingLengthPhase;
-	}
-
-	public void setIncomingLengthPhase(String incomingLengthPhase) {
-		this.incomingLengthPhase = incomingLengthPhase;
 	}
 
 	public Integer getIncomingLengthNeutral() {
@@ -193,6 +191,85 @@ public class Light {
 	public void setSafetyTestingLight(List<SafetyTestingLight> safetyTestingLight) {
 		this.safetyTestingLight = safetyTestingLight;
 	}
-	
 
+	public Integer getIncomingSizePhase() {
+		return incomingSizePhase;
+	}
+
+	public void setIncomingSizePhase(Integer incomingSizePhase) {
+		this.incomingSizePhase = incomingSizePhase;
+	}
+
+	public Integer getIncomingSizeNeutral() {
+		return incomingSizeNeutral;
+	}
+
+	public void setIncomingSizeNeutral(Integer incomingSizeNeutral) {
+		this.incomingSizeNeutral = incomingSizeNeutral;
+	}
+
+	public Integer getIncomingLengthPhase() {
+		return incomingLengthPhase;
+	}
+
+	public void setIncomingLengthPhase(Integer incomingLengthPhase) {
+		this.incomingLengthPhase = incomingLengthPhase;
+	}
+
+	public String getNodeId() {
+		return nodeId;
+	}
+
+	public void setNodeId(String nodeId) {
+		this.nodeId = nodeId;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDateTime createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public LocalDateTime getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(LocalDateTime updatedDate) {
+		this.updatedDate = updatedDate;
+	}
+	
 }
