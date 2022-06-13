@@ -52,7 +52,7 @@ public class MCCBServiceImpl implements MCCBService {
 			}
 			else {
 				logger.error("Node Id "+mccb.getNodeId()+"is already exist for File Name "+mccb.getFileName());
-				throw new MCCBException("Node Id "+mccb.getNodeId()+"is already exist for File Name "+mccb.getFileName());
+				throw new MCCBException("This MCCB details is already exist for File Name "+mccb.getFileName());
 			}						
 		}
 		else {

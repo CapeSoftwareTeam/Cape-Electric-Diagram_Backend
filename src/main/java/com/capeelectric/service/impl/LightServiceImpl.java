@@ -52,7 +52,7 @@ public class LightServiceImpl implements LightService {
 			}
 			else {
 				logger.error("Node Id "+light.getNodeId()+"is already exist for File Name"+light.getFileName());
-				throw new LightException("Node Id "+light.getNodeId()+"is already exist for File Name"+light.getFileName());
+				throw new LightException("This Light details is already exist for File Name "+light.getFileName());
 			}						
 		}
 		else {

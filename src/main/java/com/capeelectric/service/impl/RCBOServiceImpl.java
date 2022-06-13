@@ -52,7 +52,7 @@ public class RCBOServiceImpl implements RCBOService {
 			}
 			else {
 				logger.error("Node Id "+rcbo.getNodeId()+"is already exist for File Name"+rcbo.getFileName());
-				throw new RCBOException("Node Id "+rcbo.getNodeId()+"is already exist for File Name"+rcbo.getFileName());
+				throw new RCBOException("This RCBO details is already exist for File Name "+rcbo.getFileName());
 			}						
 		}
 		else {
