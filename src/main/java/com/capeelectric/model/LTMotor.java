@@ -200,7 +200,7 @@ public class LTMotor {
 		return model;
 	}
 
-	public void setType(Integer model) {
+	public void setModel(Integer model) {
 		this.model = model;
 	}
 
