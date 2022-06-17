@@ -68,8 +68,8 @@ public class LTMotor {
 	@Column(name = "NO_OF_PHASE")
 	private String noOfPhase;
 	
-	@Column(name = "TYPE")
-	private Integer type;
+	@Column(name = "Model")
+	private Integer model;
 	
 	@Column(name = "INCOMING_SIZE_PHASE")
 	private Integer incomingSizePhase;
@@ -196,12 +196,12 @@ public class LTMotor {
 		this.noOfPhase = noOfPhase;
 	}
 
-	public Integer getType() {
-		return type;
+	public Integer getModel() {
+		return model;
 	}
 
-	public void setType(Integer type) {
-		this.type = type;
+	public void setType(Integer model) {
+		this.model = model;
 	}
 
 	public Integer getIncomingSizePhase() {
