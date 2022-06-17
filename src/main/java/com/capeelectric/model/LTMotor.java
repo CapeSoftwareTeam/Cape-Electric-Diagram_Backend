@@ -3,6 +3,7 @@
  */
 package com.capeelectric.model;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,6 +16,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /**
@@ -23,11 +27,25 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  */
 @Entity
 @Table(name = "LT_MOTOR")
+@NamedQueries(value = {
+		@NamedQuery(name = "ltMotorRepository.findByFileNameAndNodeId", query = "select s from LTMotor s where s.fileName=:fileName and s.nodeId=:nodeId")
+		
+
+})
 public class LTMotor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "MOTOR_ID")
 	private Integer motorId;
+	
+	@Column(name = "NODE_ID")
+	private String nodeId;
+	
+	@Column(name = "FILE_NAME")
+	private String fileName;
+	
+	@Column(name = "USER_NAME")
+	private String userName;
 	
 	@Column(name = "REFERENCE_NAME")
 	private String referenceName;
@@ -48,7 +66,7 @@ public class LTMotor {
 	private Integer voltage;
 	
 	@Column(name = "NO_OF_PHASE")
-	private Integer noOfPhase;
+	private String noOfPhase;
 	
 	@Column(name = "TYPE")
 	private Integer type;
@@ -71,6 +89,18 @@ public class LTMotor {
 	@Column(name = "INCOMING_LENGTH_PROTECTIVE")
 	private Integer incomingLengthProtective;
 	
+	@Column(name = "CREATED_DATE")
+	private LocalDateTime createdDate;
+
+	@Column(name = "CREATED_BY")
+	private String createdBy;
+
+	@Column(name = "UPDATED_BY")
+	private String updatedBy;
+	
+	@Column(name = "UPDATED_DATE")
+	private LocalDateTime updatedDate;
+	
 	@JsonManagedReference
 	@OneToMany(mappedBy = "ltMotor", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<GeneralTestingLTMotor> generalTestingLTMotor;
@@ -85,6 +115,29 @@ public class LTMotor {
 
 	public void setMotorId(Integer motorId) {
 		this.motorId = motorId;
+	}
+	public String getNodeId() {
+		return nodeId;
+	}
+
+	public void setNodeId(String nodeId) {
+		this.nodeId = nodeId;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getReferenceName() {
@@ -135,11 +188,11 @@ public class LTMotor {
 		this.voltage = voltage;
 	}
 
-	public Integer getNoOfPhase() {
+	public String getNoOfPhase() {
 		return noOfPhase;
 	}
 
-	public void setNoOfPhase(Integer noOfPhase) {
+	public void setNoOfPhase(String noOfPhase) {
 		this.noOfPhase = noOfPhase;
 	}
 
@@ -215,6 +268,37 @@ public class LTMotor {
 		this.safetyTestingLTMotor = safetyTestingLTMotor;
 	}
 	
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDateTime createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public LocalDateTime getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(LocalDateTime updatedDate) {
+		this.updatedDate = updatedDate;
+	}
 	
 	
 }
