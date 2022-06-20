@@ -57,6 +57,21 @@ public class GeneralTestingMCCB {
 	@Column(name = "NE")
 	private String nE;
 	
+	@Column(name = "ir_current")
+	private String iRCurrent;
+	
+	@Column(name = "iy_current")
+	private String iYCurrent;
+	
+	@Column(name = "ib_current")
+	private String iBCurrent;
+	
+	@Column(name = "in_current")
+	private String iNCurrent;
+	
+	@Column(name = "ipe_current")
+	private String iPECurrent;
+	
 	@Column(name = "POWER_FACTOR")
 	private String powerFactor;
 		
@@ -154,6 +169,46 @@ public class GeneralTestingMCCB {
 
 	public void setnE(String nE) {
 		this.nE = nE;
+	}
+
+	public String getiRCurrent() {
+		return iRCurrent;
+	}
+
+	public void setiRCurrent(String iRCurrent) {
+		this.iRCurrent = iRCurrent;
+	}
+
+	public String getiYCurrent() {
+		return iYCurrent;
+	}
+
+	public void setiYCurrent(String iYCurrent) {
+		this.iYCurrent = iYCurrent;
+	}
+
+	public String getiBCurrent() {
+		return iBCurrent;
+	}
+
+	public void setiBCurrent(String iBCurrent) {
+		this.iBCurrent = iBCurrent;
+	}
+
+	public String getiNCurrent() {
+		return iNCurrent;
+	}
+
+	public void setiNCurrent(String iNCurrent) {
+		this.iNCurrent = iNCurrent;
+	}
+
+	public String getiPECurrent() {
+		return iPECurrent;
+	}
+
+	public void setiPECurrent(String iPECurrent) {
+		this.iPECurrent = iPECurrent;
 	}
 
 	public String getPowerFactor() {

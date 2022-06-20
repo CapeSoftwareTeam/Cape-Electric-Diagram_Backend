@@ -85,8 +85,14 @@ public class MCCB {
 	@Column(name = "SET_TIME")
 	private Integer setTime ;
 	
-	@Column(name = "OUTGOING_CABLE")
-	private Integer outgoingCable ;
+	@Column(name = "OUTGOING_SIZE_PHASE")
+	private Integer outgoingSizePhase ;
+	
+	@Column(name = "OUTGOING_SIZE_NEUTRAL")
+	private Integer outgoingSizeNeutral ;
+	
+	@Column(name = "OUTGOING_SIZE_PROTECTIVE")
+	private Integer outgoingSizeProtective ;
 	
 	@Column(name = "CREATED_DATE")
 	private LocalDateTime createdDate;
@@ -204,11 +210,11 @@ public class MCCB {
 		this.overcurrent = overcurrent;
 	}
 
-	public Integer getSetTime() {
+	public Integer getSetTimes() {
 		return setTimes;
 	}
 
-	public void setSetTime(Integer setTimes) {
+	public void setSetTimes(Integer setTimes) {
 		this.setTimes = setTimes;
 	}
 
@@ -220,20 +226,36 @@ public class MCCB {
 		EarthFault = earthFault;
 	}
 
-	public Integer getSetTime1() {
+	public Integer getSetTime() {
 		return setTime;
 	}
 
-	public void setSetTime1(Integer setTime1) {
+	public void setSetTime(Integer setTime) {
 		this.setTime = setTime;
 	}
 
-	public Integer getOutgoingCable() {
-		return outgoingCable;
+	public Integer getOutgoingSizePhase() {
+		return outgoingSizePhase;
 	}
 
-	public void setOutgoingCable(Integer outgoingCable) {
-		this.outgoingCable = outgoingCable;
+	public void setOutgoingSizePhase(Integer outgoingSizePhase) {
+		this.outgoingSizePhase = outgoingSizePhase;
+	}
+
+	public Integer getOutgoingSizeNeutral() {
+		return outgoingSizeNeutral;
+	}
+
+	public void setOutgoingSizeNeutral(Integer outgoingSizeNeutral) {
+		this.outgoingSizeNeutral = outgoingSizeNeutral;
+	}
+
+	public Integer getOutgoingSizeProtective() {
+		return outgoingSizeProtective;
+	}
+
+	public void setOutgoingSizeProtective(Integer outgoingSizeProtective) {
+		this.outgoingSizeProtective = outgoingSizeProtective;
 	}
 
 	public String getNoOfPoles() {
