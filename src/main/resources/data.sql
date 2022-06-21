@@ -35,7 +35,7 @@ use lv_safety_verification;
 			INSERT INTO DIAGRAM_SYMBOL VALUES (7, '../../assets/img/MCB.png', 'MCB');
 			INSERT INTO DIAGRAM_SYMBOL VALUES (8, '../../assets/img/MCB_with_RCD.png', 'MCB_with_RCD');
 			INSERT INTO DIAGRAM_SYMBOL VALUES (9, '../../assets/img/MCCB.png', 'MCCB');
-			INSERT INTO DIAGRAM_SYMBOL VALUES (10, '../../assets/img/Motor.png', 'Motor');
+			INSERT INTO DIAGRAM_SYMBOL VALUES (10, '../../assets/img/motor.png', 'Motor');
 			INSERT INTO DIAGRAM_SYMBOL VALUES (11, '../../assets/img/Transformer_delta_delta.png', 'Transformer_delta_delta');
 			INSERT INTO DIAGRAM_SYMBOL VALUES (12, '../../assets/img/Transformer_delta_star.png', 'Transformer_delta_star');
 			INSERT INTO DIAGRAM_SYMBOL VALUES (13, '../../assets/img/Transformer_star_delta.png', 'Transformer_star_delta');
