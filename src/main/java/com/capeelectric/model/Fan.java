@@ -3,6 +3,7 @@
  */
 package com.capeelectric.model;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -30,6 +31,15 @@ public class Fan {
 	@Column(name = "FAN_ID")
 	private Integer fanId;
 	
+	@Column(name = "NODE_ID")
+	private String nodeId;
+	
+	@Column(name = "FILE_NAME")
+	private String fileName;
+	
+	@Column(name = "USER_NAME")
+	private String userName;
+	
 	@Column(name = "REFERENCE_NAME")
 	private String referenceName;
 		
@@ -45,8 +55,8 @@ public class Fan {
 	@Column(name = "VOLTAGE")
 	private Integer voltage;
 	
-	@Column(name = "TYPE")
-	private Integer type;
+	@Column(name = "MODEL")
+	private Integer model;
 	
 	@Column(name = "INCOMING_SIZE_PHASE")
 	private String incomingSizePhase;
@@ -66,6 +76,18 @@ public class Fan {
 	@Column(name = "INCOMING_LENGTH_PROTECTIVE")
 	private String incomingLengthProtective;
 	
+	@Column(name = "CREATED_DATE")
+	private LocalDateTime createdDate;
+
+	@Column(name = "CREATED_BY")
+	private String createdBy;
+
+	@Column(name = "UPDATED_BY")
+	private String updatedBy;
+	
+	@Column(name = "UPDATED_DATE")
+	private LocalDateTime updatedDate;
+	
 	@JsonManagedReference
 	@OneToMany(mappedBy = "fan", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<GeneralTestingFan> generalTestingFan;
@@ -82,6 +104,30 @@ public class Fan {
 		this.fanId = fanId;
 	}
 
+	public String getNodeId() {
+		return nodeId;
+	}
+
+	public void setNodeId(String nodeId) {
+		this.nodeId = nodeId;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
 	public String getReferenceName() {
 		return referenceName;
 	}
@@ -122,12 +168,12 @@ public class Fan {
 		this.voltage = voltage;
 	}
 
-	public Integer getType() {
-		return type;
+	public Integer getModel() {
+		return model;
 	}
 
-	public void setType(Integer type) {
-		this.type = type;
+	public void setModel(Integer model) {
+		this.model = model;
 	}
 
 	public String getIncomingSizePhase() {
@@ -194,5 +240,35 @@ public class Fan {
 		this.safetyTestingFan = safetyTestingFan;
 	}
 
-	
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDateTime createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public LocalDateTime getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(LocalDateTime updatedDate) {
+		this.updatedDate = updatedDate;
+	}
 }
