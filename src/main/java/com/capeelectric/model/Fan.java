@@ -56,7 +56,7 @@ public class Fan {
 	private Integer voltage;
 	
 	@Column(name = "MODEL")
-	private Integer model;
+	private String model;
 	
 	@Column(name = "INCOMING_SIZE_PHASE")
 	private String incomingSizePhase;
@@ -168,11 +168,11 @@ public class Fan {
 		this.voltage = voltage;
 	}
 
-	public Integer getModel() {
+	public String getModel() {
 		return model;
 	}
 
-	public void setModel(Integer model) {
+	public void setModel(String model) {
 		this.model = model;
 	}
 
