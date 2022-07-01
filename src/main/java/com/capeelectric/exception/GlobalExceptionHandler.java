@@ -41,4 +41,10 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<ErrorMessage>(exceptionMessage, new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE);
 	}
 	
+	@ExceptionHandler({ PortableApplianceException.class })
+	public ResponseEntity<ErrorMessage> handlePortableApplianceException(PortableApplianceException e) {
+		ErrorMessage exceptionMessage = new ErrorMessage(e.getMessage(), e.getLocalizedMessage(), "406");
+		return new ResponseEntity<ErrorMessage>(exceptionMessage, new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE);
+	}
+	
 }
