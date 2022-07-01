@@ -31,7 +31,7 @@ public class GeneralTestingPAT {
 	@Column(name = "CLASS_TYPE")
 	private String classType;
 		
-	@Column(name = "REFERENCE")
+	@Column(name = "REFERANCE")
 	private String reference;
 	
 	@Column(name = "VOLTAGE")
