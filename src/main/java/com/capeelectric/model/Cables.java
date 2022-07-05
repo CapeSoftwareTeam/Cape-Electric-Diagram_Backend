@@ -50,10 +50,10 @@ public class Cables {
 	private Integer voltage;
 	
 	@Column(name = "BUS_DUCT_TYPE")
-	private Integer busDuctType;
+	private String busDuctType;
 	
 	@Column(name = "INSTALLATION_TYPE")
-	private Integer installation;
+	private String installation;
 	
 	@Column(name = "BUS_DUCT_PHASE_M")
 	private String busDuctPhaseM;
@@ -142,19 +142,19 @@ public class Cables {
 		this.voltage = voltage;
 	}
 
-	public Integer getBusDuctType() {
+	public String getBusDuctType() {
 		return busDuctType;
 	}
 
-	public void setBusDuctType(Integer busDuctType) {
+	public void setBusDuctType(String busDuctType) {
 		this.busDuctType = busDuctType;
 	}
 
-	public Integer getInstallation() {
+	public String getInstallation() {
 		return installation;
 	}
 
-	public void setInstallation(Integer installation) {
+	public void setInstallation(String installation) {
 		this.installation = installation;
 	}
 
