@@ -3,6 +3,7 @@
  */
 package com.capeelectric.model;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -30,9 +31,15 @@ public class Cables {
 	@Column(name = "CABLE_ID")
 	private Integer cableId;
 	
-	@Column(name = "REFERENCE_NAME")
-	private String referenceName;
-		
+	@Column(name = "NODE_ID")
+	private String nodeId;
+	
+	@Column(name = "FILE_NAME")
+	private String fileName;
+	
+	@Column(name = "USER_NAME")
+	private String userName;
+	
 	@Column(name = "MANUFACTURER_NAME")
 	private String manufacturerName;
 	
@@ -45,8 +52,8 @@ public class Cables {
 	@Column(name = "BUS_DUCT_TYPE")
 	private Integer busDuctType;
 	
-	@Column(name = "BUS_DUCT_SIZE")
-	private Integer busDuctSize;
+	@Column(name = "INSTALLATION_TYPE")
+	private Integer installation;
 	
 	@Column(name = "BUS_DUCT_PHASE_M")
 	private String busDuctPhaseM;
@@ -57,14 +64,23 @@ public class Cables {
 	@Column(name = "BUS_DUCT_PROTECTIVE_M")
 	private String busDuctProtectiveM;
 	
-	@Column(name = "BUS_DUCT_PHASE_SQM")
-	private String busDuctPhaseSQM;
+	@Column(name = "BUS_DUCT_LENGTH")
+	private String busDuctLength;
 	
-	@Column(name = "BUS_DUCT_NEUTRAL_SQM")
-	private String busDuctNeutralSQM;
+	@Column(name = "POTENTIAL_TEST_REPORT")
+	private String potentialTestReport;
 	
-	@Column(name = "BUS_DUCT_PROTECTIVE_SQM")
-	private String busDuctProtectiveSQM;
+	@Column(name = "CREATED_DATE")
+	private LocalDateTime createdDate;
+
+	@Column(name = "CREATED_BY")
+	private String createdBy;
+
+	@Column(name = "UPDATED_BY")
+	private String updatedBy;
+	
+	@Column(name = "UPDATED_DATE")
+	private LocalDateTime updatedDate;
 	
 	@JsonManagedReference
 	@OneToMany(mappedBy = "cables", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -78,15 +94,31 @@ public class Cables {
 		this.cableId = cableId;
 	}
 
-	public String getReferenceName() {
-		return referenceName;
+	public String getNodeId() {
+		return nodeId;
 	}
 
-	public void setReferenceName(String referenceName) {
-		this.referenceName = referenceName;
+	public void setNodeId(String nodeId) {
+		this.nodeId = nodeId;
 	}
 
-	public String getManufacturerName() {
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+    public String getManufacturerName() {
 		return manufacturerName;
 	}
 
@@ -118,12 +150,12 @@ public class Cables {
 		this.busDuctType = busDuctType;
 	}
 
-	public Integer getBusDuctSize() {
-		return busDuctSize;
+	public Integer getInstallation() {
+		return installation;
 	}
 
-	public void setBusDuctSize(Integer busDuctSize) {
-		this.busDuctSize = busDuctSize;
+	public void setInstallation(Integer installation) {
+		this.installation = installation;
 	}
 
 	public String getBusDuctPhaseM() {
@@ -150,28 +182,20 @@ public class Cables {
 		this.busDuctProtectiveM = busDuctProtectiveM;
 	}
 
-	public String getBusDuctPhaseSQM() {
-		return busDuctPhaseSQM;
+	public String getBusDuctLength() {
+		return busDuctLength;
 	}
 
-	public void setBusDuctPhaseSQM(String busDuctPhaseSQM) {
-		this.busDuctPhaseSQM = busDuctPhaseSQM;
+	public void setBusDuctLength(String busDuctLength) {
+		this.busDuctLength = busDuctLength;
 	}
 
-	public String getBusDuctNeutralSQM() {
-		return busDuctNeutralSQM;
+	public String getPotentialTestReport() {
+		return potentialTestReport;
 	}
 
-	public void setBusDuctNeutralSQM(String busDuctNeutralSQM) {
-		this.busDuctNeutralSQM = busDuctNeutralSQM;
-	}
-
-	public String getBusDuctProtectiveSQM() {
-		return busDuctProtectiveSQM;
-	}
-
-	public void setBusDuctProtectiveSQM(String busDuctProtectiveSQM) {
-		this.busDuctProtectiveSQM = busDuctProtectiveSQM;
+	public void setPotentialTestReport(String potentialTestReport) {
+		this.potentialTestReport = potentialTestReport;
 	}
 
 	public List<GeneralTestingCables> getGeneralTestingCables() {
@@ -182,5 +206,35 @@ public class Cables {
 		this.generalTestingCables = generalTestingCables;
 	}
 	
-	
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDateTime createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public LocalDateTime getUpdatedDate() {
+		return updatedDate;
+	}
+
+	public void setUpdatedDate(LocalDateTime updatedDate) {
+		this.updatedDate = updatedDate;
+	}
 }

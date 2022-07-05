@@ -38,7 +38,7 @@ private static final Logger logger = LoggerFactory.getLogger(FanController.class
 	@PostMapping("/saveFan")
 	public ResponseEntity<String> addFan(@RequestBody Fan fan)
 			throws FanException {
-		logger.info("called addMCCB function File Name : {}", fan.getFileName());
+		logger.info("called addFan function File Name : {}", fan.getFileName());
 		fanService.addFan(fan); 
 		return new ResponseEntity<String>("Fan details saved successfully", HttpStatus.CREATED);
 	}
@@ -52,7 +52,7 @@ private static final Logger logger = LoggerFactory.getLogger(FanController.class
 	}
 	
 	@PutMapping("/updateFan")
-	public ResponseEntity<String> updateMCCB(@RequestBody Fan fan)
+	public ResponseEntity<String> updateFan(@RequestBody Fan fan)
 			throws FanException {
 		logger.info("called updateFan function File Name : {}", fan.getFileName());
 		fanService.updateFan(fan);

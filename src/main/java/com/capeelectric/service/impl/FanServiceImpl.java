@@ -48,12 +48,12 @@ public class FanServiceImpl implements FanService {
 				fan.setCreatedBy(userFullName.findByUserName(fan.getUserName()));
 				fan.setUpdatedBy(userFullName.findByUserName(fan.getUserName()));
 				
-				logger.info("Ended addMCCB function");
+				logger.info("Ended addFan function");
 				return fanRepository.save(fan);
 			}
 			else {
 				logger.error("Node Id "+fan.getNodeId()+"is already exist for File Name "+fan.getFileName());
-				throw new FanException("This MCCB details is already exist for File Name "+fan.getFileName());
+				throw new FanException("This Fan details is already exist for File Name "+fan.getFileName());
 			}						
 		}
 		else {
@@ -64,7 +64,7 @@ public class FanServiceImpl implements FanService {
 	
 	@Override
 	public List<Fan> retrieveFanData(String fileName, String nodeId) throws FanException {
-		logger.info("Called retrieveMCCBData function");
+		logger.info("Called retrieveFanData function");
 		Fan fan =new Fan();
 		if (fileName != null && !fileName.isEmpty() && nodeId != null && !nodeId.isEmpty()) {
 			Optional<Fan> fanRepo = fanRepository.findByFileNameAndNodeId(fileName,nodeId);

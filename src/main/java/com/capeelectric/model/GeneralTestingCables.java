@@ -30,12 +30,9 @@ public class GeneralTestingCables {
 	
 	@Column(name = "PHN")
 	private String phN;
-		
-	@Column(name = "PHE")
-	private String phE;
-	
-	@Column(name = "NE")
-	private String nE;
+
+	@Column(name = "FLAG")
+	private String flag;
 	
 	@JsonBackReference
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -58,22 +55,6 @@ public class GeneralTestingCables {
 		this.phN = phN;
 	}
 
-	public String getPhE() {
-		return phE;
-	}
-
-	public void setPhE(String phE) {
-		this.phE = phE;
-	}
-
-	public String getnE() {
-		return nE;
-	}
-
-	public void setnE(String nE) {
-		this.nE = nE;
-	}
-
 	public Cables getCables() {
 		return cables;
 	}
@@ -82,5 +63,12 @@ public class GeneralTestingCables {
 		this.cables = cables;
 	}
 	
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
 	
 }
