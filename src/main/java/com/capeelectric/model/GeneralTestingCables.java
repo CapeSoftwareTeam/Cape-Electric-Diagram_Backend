@@ -28,9 +28,18 @@ public class GeneralTestingCables {
 	@Column(name = "GENERAL_TESTING_CABLE_ID")
 	private Integer generalTestingCableId;
 	
+	@Column(name = "POTENTIAL_REPORT")
+	private String potentialReport;
+	
 	@Column(name = "PHN")
 	private String phN;
 
+	@Column(name = "PHNI_RESISTANCE")
+	private String phNIResistance;
+	
+	@Column(name = "PHNC_RESISTANCE")
+	private String phNCResistance;
+	
 	@Column(name = "FLAG")
 	private String flag;
 	
@@ -47,6 +56,14 @@ public class GeneralTestingCables {
 		this.generalTestingCableId = generalTestingCableId;
 	}
 
+	public String getPotentialReport() {
+		return potentialReport;
+	}
+
+	public void setPotentialReport(String potentialReport) {
+		this.potentialReport = potentialReport;
+	}
+	
 	public String getPhN() {
 		return phN;
 	}
@@ -55,6 +72,22 @@ public class GeneralTestingCables {
 		this.phN = phN;
 	}
 
+	public String getPhNIResistance() {
+		return phNIResistance;
+	}
+
+	public void setPhNIResistance(String phNIResistance) {
+		this.phNIResistance = phNIResistance;
+	}
+
+	public String getPhNCResistance() {
+		return phNCResistance;
+	}
+
+	public void setPhNCResistance(String phNCResistance) {
+		this.phNCResistance = phNCResistance;
+	}
+	
 	public Cables getCables() {
 		return cables;
 	}
