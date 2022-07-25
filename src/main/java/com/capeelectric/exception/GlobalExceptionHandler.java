@@ -47,4 +47,10 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<ErrorMessage>(exceptionMessage, new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE);
 	}
 	
+	@ExceptionHandler({ TransformerException.class })
+	public ResponseEntity<ErrorMessage> handleTransformerException(TransformerException e) {
+		ErrorMessage exceptionMessage = new ErrorMessage(e.getMessage(), e.getLocalizedMessage(), "406");
+		return new ResponseEntity<ErrorMessage>(exceptionMessage, new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE);
+	}
+	
 }

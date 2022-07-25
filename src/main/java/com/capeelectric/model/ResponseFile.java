@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.capeelectric.model;
 
 import java.io.Serializable;
@@ -10,20 +13,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.NamedQueries;
-import org.hibernate.annotations.NamedQuery;
+/**
+ * @author CAPE-SOFTWARE
+ *
+ */
 
 @Entity
-@Table(name = "FILE_UPLOAD_LPS_TABLE")
-@NamedQueries(value = {
-		@NamedQuery(name = "FileDBRepository.findByLpsId", query = "select s from ResponseFile s where s.lpsId=:lpsId"),
+@Table(name = "FILE_UPLOAD_DIAGRAM_TABLE")
+public class ResponseFile implements Serializable{
 
-})
-public class ResponseFile implements Serializable {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -33,18 +31,24 @@ public class ResponseFile implements Serializable {
 
 	@Column(name = "FILE_NAME")
 	private String fileName;
+	
+	@Column(name = "MAIN_FILE_NAME")
+	private String mainFileName;
 
-	@Column(name = "LPS_ID")
-	private Integer lpsId;
+	@Column(name = "NODE_ID")
+	private String nodeId;
 
 	@Column(name = "FILE_TYPE")
 	private String fileType;
 
 	@Column(name = "DATA")
 	private Blob data;
-
-	@Column(name = "COMPONENT_NAME")
-	private String componentName;
+	
+	@Column(name = "FILE_SIZE")
+	private String fileSize;
+	
+	@Column(name = "COMPONENT")
+	private String component;
 
 	public Integer getFileId() {
 		return fileId;
@@ -62,12 +66,22 @@ public class ResponseFile implements Serializable {
 		this.fileName = fileName;
 	}
 
-	public Integer getLpsId() {
-		return lpsId;
+	public String getMainFileName() {
+		return mainFileName;
 	}
 
-	public void setLpsId(Integer lpsId) {
-		this.lpsId = lpsId;
+	public void setMainFileName(String mainFileName) {
+		this.mainFileName = mainFileName;
+	}
+
+	
+
+	public String getNodeId() {
+		return nodeId;
+	}
+
+	public void setNodeId(String nodeId) {
+		this.nodeId = nodeId;
 	}
 
 	public String getFileType() {
@@ -86,12 +100,25 @@ public class ResponseFile implements Serializable {
 		this.data = data;
 	}
 
-	public String getComponentName() {
-		return componentName;
+	public String getFileSize() {
+		return fileSize;
 	}
 
-	public void setComponentName(String componentName) {
-		this.componentName = componentName;
+	public void setFileSize(String fileSize) {
+		this.fileSize = fileSize;
 	}
 
+	public String getComponent() {
+		return component;
+	}
+
+	public void setComponent(String component) {
+		this.component = component;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	
+	
 }
