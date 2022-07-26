@@ -37,23 +37,16 @@ public class NodesFileStorageImpl implements NodesFileStorageService {
 	public void store(MultipartFile file,String component, String mainFileName, String nodeId, String fileSize) throws IOException, SerialException, SQLException {
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 		Blob blob = new javax.sql.rowset.serial.SerialBlob(IOUtils.toByteArray(file.getInputStream()));
-		Optional<ResponseFile> responseFileData = fileUploadRepository.findByNodeId(nodeId);
-		if(!responseFileData.isPresent()) {
-			ResponseFile FileDB = new ResponseFile();
-			FileDB.setNodeId(nodeId);
-			FileDB.setFileName(fileName);
-			FileDB.setComponent(component);
-			FileDB.setMainFileName(mainFileName);
-			FileDB.setData(blob);
-			FileDB.setFileSize(fileSize);
-			FileDB.setFileType(file.getContentType());
-			logger.debug("File Saved In DB");
-			fileUploadRepository.save(FileDB);
-		}
-		else {
-			logger.error("Node Id already exist");
-			throw new IOException("Node Id already exist");
-		}
+		ResponseFile FileDB = new ResponseFile();
+		FileDB.setNodeId(nodeId);
+		FileDB.setFileName(fileName);
+		FileDB.setComponent(component);
+		FileDB.setMainFileName(mainFileName);
+		FileDB.setData(blob);
+		FileDB.setFileSize(fileSize);
+		FileDB.setFileType(file.getContentType());
+		logger.debug("File Saved In DB");
+		fileUploadRepository.save(FileDB);
 	}
 
 	public ResponseFile downloadFile(String nodeId) throws IOException {
