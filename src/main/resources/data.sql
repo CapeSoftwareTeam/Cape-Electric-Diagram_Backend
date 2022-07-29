@@ -48,6 +48,7 @@ use lv_safety_verification;
 			INSERT INTO DIAGRAM_SYMBOL VALUES (20, '../../assets/img/Ground1.png', 'Ground1');
 			INSERT INTO DIAGRAM_SYMBOL VALUES (21, '../../assets/img/PortableAppliance.png', 'PortableAppliance');
 			INSERT INTO DIAGRAM_SYMBOL VALUES (22, '../../assets/img/Fan.png', 'Fan');
+			INSERT INTO DIAGRAM_SYMBOL VALUES (23, '../../assets/img/DieselGenerator.png', 'Fan');
 
 			
 			
