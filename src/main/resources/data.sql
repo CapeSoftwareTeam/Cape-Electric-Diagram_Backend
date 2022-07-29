@@ -48,7 +48,6 @@ use lv_safety_verification;
 			INSERT INTO DIAGRAM_SYMBOL VALUES (20, '../../assets/img/Ground1.png', 'Ground1');
 			INSERT INTO DIAGRAM_SYMBOL VALUES (21, '../../assets/img/PortableAppliance.png', 'PortableAppliance');
 			INSERT INTO DIAGRAM_SYMBOL VALUES (22, '../../assets/img/Fan.png', 'Fan');
-			INSERT INTO DIAGRAM_SYMBOL VALUES (23, '../../assets/img/DieselGenerator.png', 'DieselGenerator');
 
 			
 			
@@ -546,7 +545,8 @@ CREATE TABLE cableconnector(
 			CONSTRAINT PK_GENERAL_TESTING_CABLE_CONNECTOR_ID PRIMARY KEY(GENERAL_TESTING_CABLE_CONNECTOR_ID),
 			CONSTRAINT FK_GENERAL_TESTING_CABLE_CONNECTOR_ID FOREIGN KEY(CABLE_ID) REFERENCES cableconnector(CABLE_ID) ON DELETE CASCADE
 			);	
-						-----------> Transformer <----------
+            
+-----------> Transformer <----------
 
 CREATE TABLE transformer_details(
 			TRANSFORMER_DETAILS_ID INT AUTO_INCREMENT,
@@ -592,6 +592,9 @@ CREATE TABLE diesel_generator_details(
 			USER_NAME VARCHAR(200),
 			REFERENCE_NAME VARCHAR(200),
 			CAPACITY_RATING INTEGER,
+            VOLTAGE_RATING INTEGER,
+            FAULT_CURRENT INTEGER,
+            NEUTRAL_CONNECT VARCHAR(200),
 		    DIESEL_GENERATOR_TEST_REPORT VARCHAR(200),
             CREATED_BY VARCHAR(200),
 			CREATED_DATE DATETIME,
